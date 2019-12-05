@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f90e90eb374050c8c691383aa52e2837eeb22e79e0742f6607c824f49f6f3612"
+            "sha256": "5ed4215e55ced486f9da8bcf47a9ae957baf7c67033a8eeb6e7a3003b69dee18"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -931,6 +931,14 @@
             ],
             "version": "==3.3.0"
         },
+        "azure-mgmt-subscription": {
+            "hashes": [
+                "sha256:504b4c42ba859070c3c50637ec07ca36aca600e613fcccaa398db22822fe21f1",
+                "sha256:850f86de5078f61f3a9bd81cb2b938ea25ce9a266c9fe22c7fca94a2b5968c16"
+            ],
+            "index": "pypi",
+            "version": "==0.5.0"
+        },
         "azure-mgmt-trafficmanager": {
             "hashes": [
                 "sha256:672f909459e70d41eb8d7bc619839cd60eb2cea2fd20dc7924b7e9670ea8aedf",
@@ -1006,18 +1014,18 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:4cb17e406a1e18a5691e4f76c456e538ec04e46e5211158714d66a12fe824dad",
-                "sha256:f5cdbd853736175db5b23cd2bbfde9abe30152e68b16efa59a0456014c446782"
+                "sha256:d280f2bf7dc373e8aeab296f81aadefabf8780ff8c8ad27cdc36f8f112ca95ed",
+                "sha256:edbf4636e700c46e49f555ac87ab48b8c385fde604528db15fc5189d5a73dc72"
             ],
             "index": "pypi",
-            "version": "==1.10.32"
+            "version": "==1.10.33"
         },
         "botocore": {
             "hashes": [
-                "sha256:9ed03c200578f5b4d498403ba4e8deaa5b6d52d5e055a96fb4e9fe2101a7ac43",
-                "sha256:e6d108c8ce9349e5d5a56034d5606ce9e6b81557a94e73c0e4137c0ecd13d4d9"
+                "sha256:4861785b52b0b3f97da91613c31f8e501f12517c9c79482b44efbdb56b69aefc",
+                "sha256:9cc87d7906693c9c8fe862c574a1bebbe22a0475d6991e9b7251bc93cb1954d9"
             ],
-            "version": "==1.13.32"
+            "version": "==1.13.33"
         },
         "certifi": {
             "hashes": [
@@ -1135,11 +1143,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:b044f07694ef14a6683b097ba56bd081dbc7cdc7c7fe46011e499dfecc082f21",
-                "sha256:e6ac600a142cf2db707b1998382cc7fc3b02befb7273876e01b8ad10b9652742"
+                "sha256:3a8b2dfd0a2c6a3636e7c016a7e54ae04b997d30e69d5eacdca7a6c2221a1402",
+                "sha256:41e688146d000891f32b1669e8573c57e39e5060e7f5f647aa617cd9a9568278"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==1.1.0"
+            "version": "==1.2.0"
         },
         "invoke": {
             "hashes": [
@@ -1627,11 +1635,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:b044f07694ef14a6683b097ba56bd081dbc7cdc7c7fe46011e499dfecc082f21",
-                "sha256:e6ac600a142cf2db707b1998382cc7fc3b02befb7273876e01b8ad10b9652742"
+                "sha256:3a8b2dfd0a2c6a3636e7c016a7e54ae04b997d30e69d5eacdca7a6c2221a1402",
+                "sha256:41e688146d000891f32b1669e8573c57e39e5060e7f5f647aa617cd9a9568278"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==1.1.0"
+            "version": "==1.2.0"
         },
         "jeepney": {
             "hashes": [
