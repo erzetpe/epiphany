@@ -36,9 +36,11 @@ def run_azure(cluster_config, backup_config):
     subscription_id = get_azure_subscription_id(client_id, client_secret, tenant_id, subscription_name)
 
     target_resource_group_name = f"{cluster_config['specification']['prefix']}-{cluster_config['specification']['name']}-rg"
+    target_resource_group = azure_resource_group.get_resource_group(client_id, client_secret, tenant_id,
+                                                                    subscription_id, target_resource_group_name)
 
     destination_resource_group_name = backup_config["specification"]["destination_resource_group_name"]
-    destination_resource_group_region = backup_config["specification"]["destination_resource_group_region"]
+    destination_resource_group_region = target_resource_group.location
 
     azure_resource_group.create_resource_group(client_id, client_secret, tenant_id, subscription_id,
                                                destination_resource_group_name, destination_resource_group_region)

@@ -23,7 +23,6 @@ def create_disks_snapshots(client_id, client_secret, tenant_id, subscription_id,
                                                            data)
         if status.result().provisioning_state == "Succeeded":
             print(f"Created Azure Snapshot: {snapshot_name}.")
-            print(f"Snapshot. {status.result()}")
         else:
             print(f"Something went terribly wrong. {status.result()}")
             exit(1)
