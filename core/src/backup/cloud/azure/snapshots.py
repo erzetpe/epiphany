@@ -1,6 +1,8 @@
 import core.cloud.azure.login as login
 from datetime import datetime
 
+from backup import logger
+
 
 def create_disks_snapshots(client_id, client_secret, tenant_id, subscription_id, target_resource_group_name,
                            destination_resource_group_name, destination_location):
@@ -22,7 +24,7 @@ def create_disks_snapshots(client_id, client_secret, tenant_id, subscription_id,
                                                            snapshot_name,
                                                            data)
         if status.result().provisioning_state == "Succeeded":
-            print(f"Created Azure Snapshot: {snapshot_name}.")
+            logger.info(f"Created Azure Snapshot: {snapshot_name}.")
         else:
-            print(f"Something went terribly wrong. {status.result()}")
+            logger.error(f"Something went terribly wrong. {status.result()}")
             exit(1)

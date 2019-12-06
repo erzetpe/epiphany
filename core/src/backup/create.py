@@ -1,5 +1,6 @@
 import backup.cloud.azure.snapshots as azure_snapshots
 import backup.cloud.azure.resource_group as azure_resource_group
+from backup import logger
 from core.helpers.data_loader import load_yaml_file
 from core.helpers.doc_list_helpers import select_single
 from core.cloud.azure.login import get_subscription_client
@@ -22,11 +23,12 @@ def get_azure_subscription_id(client_id, client_secret, tenant_id, subscription_
         subscription_id = filtered_subscription[0].subscription_id
         return subscription_id
     else:
-        print("Woooha... No subscription found.")
+        logger.error("Woooha... No subscription found.")
         exit(1)
 
 
 def run_azure(cluster_config, backup_config):
+    logger.info("Getting Azure credentials.")
     credentials = cluster_config["specification"]["cloud"]["credentials"]
     client_id = credentials["client_id"]
     client_secret = credentials["client_secret"]
@@ -42,9 +44,11 @@ def run_azure(cluster_config, backup_config):
     destination_resource_group_name = backup_config["specification"]["destination_resource_group_name"]
     destination_resource_group_region = target_resource_group.location
 
+    logger.info("Creating or update backup resource group.")
     azure_resource_group.create_resource_group(client_id, client_secret, tenant_id, subscription_id,
                                                destination_resource_group_name, destination_resource_group_region)
 
+    logger.info("Creating disk snapshot.")
     azure_snapshots.create_disks_snapshots(client_id=client_id, client_secret=client_secret,
                                            tenant_id=tenant_id, subscription_id=subscription_id,
                                            target_resource_group_name=target_resource_group_name,
@@ -54,6 +58,7 @@ def run_azure(cluster_config, backup_config):
 
 def run(args):
     if "file" in args and args.file:
+        logger.info("Loading yaml configuration.")
         docs = load_yaml_file(args.file)
         cluster_config = select_single(docs, lambda x: x["kind"] == 'epiphany-cluster')
         docs = load_yaml_file(args.file)
@@ -65,15 +70,15 @@ def run(args):
                 run_azure(cluster_config, backup_config)
 
             else:
-                print("Woooha... No parameter?")
+                logger.error("Woooha... No parameter?")
                 exit(1)
 
         else:
-            print("Woooha... Not implemented yet.")
+            logger.error("Woooha... Not implemented yet.")
             exit(1)
 
     else:
-        print("Woooha...")
+        logger.error("Woooha...")
         exit(1)
 
     return 0

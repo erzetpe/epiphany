@@ -2,9 +2,11 @@ from azure.common.credentials import ServicePrincipalCredentials
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.subscription import SubscriptionClient
+from core import logger
 
 
 def get_credentials(client_id, client_secret, tenant_id):
+    logger.debug("Getting Azure credentials")
     credentials = ServicePrincipalCredentials(
         client_id=client_id,
         secret=client_secret,
